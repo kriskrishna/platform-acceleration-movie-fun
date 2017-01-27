@@ -21,12 +21,10 @@ jobs:
   plan:
   - get: movie-fun-cnc-source
     trigger: true
-  - task: package
-    file: movie-fun-cnc-source/ci/tasks/package.yml
   - put: deploy-movie-fun-cnc
     params:
       manifest: movie-fun-cnc-source/manifest.yml
-      path: package-output/movie-fun.jar
+      path: target/moviefun.war
 
 - name: smoke_test
   public: true
