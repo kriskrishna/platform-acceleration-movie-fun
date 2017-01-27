@@ -24,7 +24,7 @@ jobs:
   - put: deploy-movie-fun-cnc
     params:
       manifest: movie-fun-cnc-source/manifest.yml
-      path: movie-fun-cnc-source/moviefun.war
+      path: movie-fun-cnc-source/target/moviefun.war
 
 - name: smoke_test
   public: true
@@ -35,5 +35,5 @@ jobs:
   - task: smoke_test
     file: movie-fun-cnc-source/ci/tasks/smoke-test.yml
     params:
-      ATTENDEE_SERVICE_URL: movie-fun-cnc.cfapps-02.haas-66.pez.pivotal.io
+      ATTENDEE_SERVICE_URL: movie-fun-cnc-supersingular-sportfulness.cfapps-02.haas-66.pez.pivotal.io
 
