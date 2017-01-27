@@ -14,5 +14,5 @@ outputs:
 - name: package-output
 
 run:
-  path: attendee-service-source/ci/tasks/package.sh
+  path: movie-fun-cnc-source/ci/tasks/package.sh
 
