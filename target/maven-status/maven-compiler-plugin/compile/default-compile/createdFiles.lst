@@ -1,0 +1,5 @@
+org/superbiz/moviefun/Application.class
+org/superbiz/moviefun/HomeController.class
+org/superbiz/moviefun/Movie.class
+org/superbiz/moviefun/ActionServlet.class
+org/superbiz/moviefun/MoviesBean.class
