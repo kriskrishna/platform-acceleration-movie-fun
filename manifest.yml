@@ -1,20 +1,31 @@
 ---
 memory: 1G
+disk_quota: 512M
 instances: 1
+buildpack: java_buildpack_offline
 services:
 - movie-fun-sso
 - movie-fun-registry
+- moviefun-s3
 env:
-  TRUST_CERTS: api.cfapps-01.haas-66.pez.pivotal.io,basic-sso.login.run-01.haas-66.pez.pivotal.io
+  TRUST_CERTS: api.cfapps-02.haas-66.pez.pivotal.io,basic-sso.login.run-02.haas-66.pez.pivotal.io
+  S3_ACCESSKEY: AKIAJHL3K2L7TTVVNOBQ
+  S3_BUCKETNAME: cf-b0a49bd6-a345-4a88-bc11-9415830ed5d6
+  S3_ENDPOINTURL: http://s3.amazonaws.com
+  S3_SECRETKEY: ls5ld8iKtrfq0pfcOqwYnoj+PsKKCPFFhkY/Wm7p
 applications:
 - name: album-service
   path: applications/album-service/build/libs/album-service-1.1.0-SNAPSHOT.jar
+  routes:
+  - route: album-service-kk.cfapps-02.haas-66.pez.pivotal.io
   services:
   - album-database
   env:
     GRANT_TYPE: client_credentials
 - name: movie-service
   path: applications/movie-service/build/libs/movie-service-1.1.0-SNAPSHOT.jar
+  routes:
+  - route: movie-service-kk.cfapps-02.haas-66.pez.pivotal.io
   services:
   - movie-database
   env:
@@ -23,3 +34,6 @@ applications:
   path: applications/movie-fun-app/build/libs/movie-fun-app-1.1.0-SNAPSHOT.war
   services:
   - movie-fun-config
+  - movie-fun-circuit-breaker
+  routes:
+  - route: movie-fun-app-kk.cfapps-02.haas-66.pez.pivotal.io
