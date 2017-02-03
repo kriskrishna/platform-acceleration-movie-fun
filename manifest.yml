@@ -15,7 +15,7 @@ env:
   S3_SECRETKEY: ls5ld8iKtrfq0pfcOqwYnoj+PsKKCPFFhkY/Wm7p
 applications:
 - name: album-service
-  path: album-service-1.1.0-SNAPSHOT.jar
+  path: package-output/album-service-1.1.0-SNAPSHOT.jar
   routes:
   - route: album-service-kk.cfapps-02.haas-66.pez.pivotal.io
   services:
@@ -23,7 +23,7 @@ applications:
   env:
     GRANT_TYPE: client_credentials
 - name: movie-service
-  path: movie-service-1.1.0-SNAPSHOT.jar
+  path: package-output/movie-service-1.1.0-SNAPSHOT.jar
   routes:
   - route: movie-service-kk.cfapps-02.haas-66.pez.pivotal.io
   services:
@@ -31,7 +31,7 @@ applications:
   env:
     GRANT_TYPE: client_credentials
 - name: movie-fun-app
-  path: movie-fun-app-1.1.0-SNAPSHOT.war
+  path: package-output/movie-fun-app-1.1.0-SNAPSHOT.war
   services:
   - movie-fun-config
   - movie-fun-circuit-breaker

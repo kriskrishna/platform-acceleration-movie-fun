@@ -26,9 +26,9 @@ jobs:
   - put:  deploy-movie-fun-cnc
     params:
       manifest: movie-fun-cnc-source/manifest.yml
-      path: package-output
 
 - name: smoke_test
+
   public: true
   plan:
   - get: movie-fun-cnc-source
