@@ -2,6 +2,7 @@
 
 set -e +x
 
+mkdir -p package-output/applications/movie-fun-app/build/libs/
 
 cd movie-fun-cnc-source
 ./gradlew clean build -xtest > /dev/null
