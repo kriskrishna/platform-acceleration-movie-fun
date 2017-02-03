@@ -39,5 +39,6 @@ dependencies {
     testCompile "junit:junit:$junitVersion"
 
     compile "io.pivotal.spring.cloud:spring-cloud-services-starter-circuit-breaker"
+    compile "org.springframework.boot:spring-boot-starter-actuator"
 
 }

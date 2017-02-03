@@ -21,6 +21,7 @@ import java.util.Optional;
 import static java.lang.String.format;
 
 @Controller
+@RestController
 @RequestMapping("/albums")
 public class AlbumsController {
 
