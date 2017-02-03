@@ -4,7 +4,7 @@ resources:
   type: git
   source:
     uri: https://github.com/kriskrishna/platform-acceleration-movie-fun.git
-    branch: spring-boot
+    branch: ckt-brkr-concourse
 - name: deploy-movie-fun-cnc
   type: cf
   source:
@@ -21,10 +21,12 @@ jobs:
   plan:
   - get: movie-fun-cnc-source
     trigger: true
+  - task: package
+    file: movie-fun-cnc-source/ci/tasks/package.yml
   - put: deploy-movie-fun-cnc
     params:
       manifest: movie-fun-cnc-source/manifest.yml
-      path: movie-fun-cnc-source/target/moviefun.war
+      path: movie-fun-cnc-source/applications/movie-fun-app/build/libs/movie-fun-app-1.1.0-SNAPSHOT.war
 
 - name: smoke_test
   public: true
