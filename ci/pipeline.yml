@@ -23,10 +23,10 @@ jobs:
     trigger: true
   - task: package
     file: movie-fun-cnc-source/ci/tasks/package.yml
-  - put: deploy-movie-fun-cnc
+  - put:  deploy-movie-fun-cnc
     params:
       manifest: movie-fun-cnc-source/manifest.yml
-      path: package-output/movie-fun.war
+      path: package-output
 
 - name: smoke_test
   public: true
