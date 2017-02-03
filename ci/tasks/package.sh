@@ -8,5 +8,5 @@ pwd
 ls applications/movie-fun-app/build/libs
 ls ../
 mv applications/movie-fun-app/build/libs/movie-fun-app-1.1.0-SNAPSHOT.war ../package-output/movie-fun.war
-mv applications/albumm-service/build/libs/album-service-1.1.0-SNAPSHOT.jar ../package-output/album-service.jar
-mv applications/albumm-service/build/libs/movie-service-1.1.0-SNAPSHOT.jar ../package-output/movie-service.jar
+mv applications/album-service/build/libs/album-service-1.1.0-SNAPSHOT.jar ../package-output/album-service.jar
+mv applications/movie-service/build/libs/movie-service-1.1.0-SNAPSHOT.jar ../package-output/movie-service.jar
