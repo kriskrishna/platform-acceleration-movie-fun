@@ -22,18 +22,18 @@ applications:
   - album-database
   env:
     GRANT_TYPE: client_credentials
-- name: movie-service
-  path: movie-service-1.1.0-SNAPSHOT.jar
-  routes:
-  - route: movie-service-kk.cfapps-02.haas-66.pez.pivotal.io
-  services:
-  - movie-database
-  env:
-    GRANT_TYPE: client_credentials
-- name: movie-fun-app
-  path: movie-fun-app-1.1.0-SNAPSHOT.war
-  services:
-  - movie-fun-config
-  - movie-fun-circuit-breaker
-  routes:
-  - route: movie-fun-app-kk.cfapps-02.haas-66.pez.pivotal.io
+#- name: movie-service
+#  path: movie-service-1.1.0-SNAPSHOT.jar
+#  routes:
+#  - route: movie-service-kk.cfapps-02.haas-66.pez.pivotal.io
+#  services:
+#  - movie-database
+#  env:
+#    GRANT_TYPE: client_credentials
+# - name: movie-fun-app
+#  path: movie-fun-app-1.1.0-SNAPSHOT.war
+#  services:
+#  - movie-fun-config
+#  - movie-fun-circuit-breaker
+#  routes:
+#  - route: movie-fun-app-kk.cfapps-02.haas-66.pez.pivotal.io
