@@ -25,10 +25,8 @@ jobs:
     file: movie-fun-cnc-source/ci/tasks/package.yml
   - put:  deploy-movie-fun-cnc
     params:
-      manifest: movie-fun-cnc-source/manifest.yml
-      path: package-output/album-service.jar
-      path: package-output/movie-service.jar
-      path: package-output/movie-fun.war
+      manifest: package-output/manifest.yml
+
 
 - name: smoke_test
 
