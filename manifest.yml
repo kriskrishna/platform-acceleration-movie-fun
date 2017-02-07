@@ -9,10 +9,10 @@ services:
 - moviefun-s3
 env:
   TRUST_CERTS: api.cfapps-02.haas-66.pez.pivotal.io,basic-sso.login.run-02.haas-66.pez.pivotal.io
-  S3_ACCESSKEY: AKIAJHL3K2L7TTVVNOBQ
+  S3_ACCESSKEY: AKIAJMHYOA6M23HYY3RA
   S3_BUCKETNAME: cf-b0a49bd6-a345-4a88-bc11-9415830ed5d6
   S3_ENDPOINTURL: http://s3.amazonaws.com
-  S3_SECRETKEY: ls5ld8iKtrfq0pfcOqwYnoj+PsKKCPFFhkY/Wm7p
+  S3_SECRETKEY: sFbJTPPpc0mXYUQWSy1GuDF0Xn927VcxKEk9ZM68
 applications:
 - name: album-service
   path: applications/album-service/build/libs/album-service-1.1.0-SNAPSHOT.jar
