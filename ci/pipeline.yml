@@ -8,11 +8,11 @@ resources:
 - name: deploy-movie-fun-cnc
   type: cf
   source:
-    api: api.run-02.haas-66.pez.pivotal.io
+    api: api.sys.pikes.pal.pivotal.io
     username: {{cf-user}}
     password: {{cf-password}}
     organization: kkrishna-pal
-    space: replatform
+    space: stg
     skip_cert_check: true
 
 jobs:

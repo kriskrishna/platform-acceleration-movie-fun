@@ -17,7 +17,7 @@ applications:
 - name: album-service
   path: applications/album-service/build/libs/album-service-1.1.0-SNAPSHOT.jar
   routes:
-  - route: album-service-kk.cfapps-02.haas-66.pez.pivotal.io
+  - route: album-service-kk.apps.pikes.pal.pivotal.io
   services:
   - album-database
   env:
@@ -25,7 +25,7 @@ applications:
 - name: movie-service
   path: applications/movie-service/build/libs/movie-service-1.1.0-SNAPSHOT.jar
   routes:
-  - route: movie-service-kk.cfapps-02.haas-66.pez.pivotal.io
+  - route: movie-service-kk.apps.pikes.pal.pivotal.io
   services:
   - movie-database
   env:
@@ -36,4 +36,4 @@ applications:
   - movie-fun-config
   - movie-fun-circuit-breaker
   routes:
-  - route: movie-fun-app-kk.cfapps-02.haas-66.pez.pivotal.io
+  - route: movie-fun-app-kk.apps.pikes.pal.pivotal.io
