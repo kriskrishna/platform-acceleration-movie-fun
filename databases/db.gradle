@@ -11,10 +11,10 @@ def getMysqlCredentials(cfAppName) {
     }
 
     def vcapServices = new JsonSlurper().parseText(
-        rawText
-            .replace("\n", "")
-            .split("System-Provided:")[1]
-            .split("VCAP_APPLICATION")[0][0..-4]
+            rawText
+                    .replace("\n", "")
+                    .split("System-Provided:")[1]
+                    .split("VCAP_APPLICATION")[0][0..-4]
     )["VCAP_SERVICES"]
 
     return vcapServices?.getAt("p-mysql")?.getAt(0)?.getAt("credentials")
@@ -39,6 +39,6 @@ ext.setupProdFlywayExtension = { extension, cfAppName ->
 
 ext.getMysqlHost = { cfAppName ->
     def mysqlCredentials = getMysqlCredentials(cfAppName)
-    
+
     return mysqlCredentials["hostname"]
 }

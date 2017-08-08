@@ -1,5 +1,7 @@
 apply from: "../../java.gradle"
 
+apply plugin: "kotlin"
+apply plugin: "kotlin-spring"
 apply plugin: "org.springframework.boot"
 apply plugin: "io.spring.dependency-management"
 apply plugin: "war"
@@ -16,6 +18,9 @@ dependencyManagement {
 }
 
 dependencies {
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+
     compile project(":components:movie-fun-api")
 
     compile "org.springframework.boot:spring-boot-starter-web"
@@ -25,9 +30,9 @@ dependencies {
     compile "org.springframework.security:spring-security-taglibs:$springSecurityVersion"
 
     compile "io.pivotal.spring.cloud:spring-cloud-sso-connector:$springCloudSsoVersion"
-    compile "io.pivotal.spring.cloud:spring-cloud-services-starter-service-registry"
-    compile "io.pivotal.spring.cloud:spring-cloud-services-starter-config-client"
-    compile "io.pivotal.spring.cloud:spring-cloud-services-starter-circuit-breaker"
+    compile "io.pivotal.spring.cloud:spring-cloud-services-starter-service-registry:1.4.0.RELEASE"
+    compile "io.pivotal.spring.cloud:spring-cloud-services-starter-config-client:1.4.0.RELEASE"
+    compile "io.pivotal.spring.cloud:spring-cloud-services-starter-circuit-breaker:1.4.0.RELEASE"
 
     compile "io.pivotal.spring.cloud:cloudfoundry-certificate-truster:$certTrusterVersion"
 
@@ -37,5 +42,9 @@ dependencies {
 
     compile "org.apache.tomcat.embed:tomcat-embed-jasper:8.5.6"
 
+    compile "org.springframework.boot:spring-boot-starter-actuator"
+
     testCompile "junit:junit:$junitVersion"
+
+    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
 }

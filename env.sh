@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+export SPRING_PROFILES_ACTIVE=development
+export S3_ACCESSKEY=LOA48Y7BDXNU4Z3PDO9M
+export S3_SECRETKEY=Nje5LRNn6ERElpLwqEDI+PxmoPUsMMCHCOe5/Jwg
+export S3_BUCKETNAME=luxoft
+export S3_ENDPOINT=http://192.168.136.182:9000
+export MOVIES_PAGESIZE=6

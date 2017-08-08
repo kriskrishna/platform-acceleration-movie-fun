@@ -12,7 +12,7 @@ spring:
     username: root
 
 logging.level:
-  root: WARN
+  root: DEBUG
   org.superbiz.moviefun: DEBUG
 
 security:

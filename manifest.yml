@@ -5,7 +5,7 @@ services:
 - movie-fun-sso
 - movie-fun-registry
 env:
-  TRUST_CERTS: api.cfapps-01.haas-66.pez.pivotal.io,basic-sso.login.run-01.haas-66.pez.pivotal.io
+  TRUST_CERTS: api.sys.pikes.pal.pivotal.io,auth-domain.login.sys.pikes.pal.pivotal.io
 applications:
 - name: album-service
   path: applications/album-service/build/libs/album-service-1.1.0-SNAPSHOT.jar
@@ -24,3 +24,6 @@ applications:
   services:
   - movie-fun-config
   - movie-fun-circuit-breaker
+env:
+    ALBUMS_URL: https://album-service.apps.pikes.pal.pivotal.io/albums
+    MOVIES_URL: https://movie-service.apps.pikes.pal.pivotal.io/movies
