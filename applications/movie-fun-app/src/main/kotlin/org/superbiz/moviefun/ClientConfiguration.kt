@@ -5,20 +5,24 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.web.client.RestOperations
 import org.superbiz.moviefun.albumsapi.AlbumsClient
+import org.superbiz.moviefun.albumsapi.PlaysClient
 import org.superbiz.moviefun.moviesapi.MoviesClient
 
 @Configuration
 class ClientConfiguration {
 
 
-    @Value("\${albums.url}") var albumsUrl: String? = null
-    @Value("\${movies.url}") var moviesUrl: String? = null
+    //@Value("\${albums.url}") var albumsUrl: String? = null
+    //@Value("\${movies.url}") var moviesUrl: String? = null
 
     @Bean
     fun albumsClient(restOperations: RestOperations) = AlbumsClient("//album-service/albums", restOperations)
 
     @Bean
     fun moviesClient(restOperations: RestOperations) = MoviesClient("//movie-service/movies", restOperations)
+
+    @Bean
+    fun playsClient(restOperations: RestOperations) = PlaysClient("//play-service/plays", restOperations)
 
 
    /* @Bean
