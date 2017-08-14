@@ -1,6 +1,7 @@
 def services = [
         [type: "p-mysql", plan: "100mb", instance: "movie-database"],
         [type: "p-mysql", plan: "100mb", instance: "album-database"],
+        [type: "p-mysql", plan: "100mb", instance: "play-database"],
         [type: "p-identity", plan: "p-identity", instance: "movie-fun-sso"],
         [type: "p-service-registry", plan: "standard", instance: "movie-fun-registry"],
         [type: "p-config-server", plan: "standard", instance: "movie-fun-config", config: "config-server.json"],
@@ -13,6 +14,7 @@ task teardownPcfEnv {
         [
                 "cf delete -f album-service",
                 "cf delete -f movie-service",
+                "cf delete -f play-service",
                 "cf delete -f movie-fun-app",
         ].each { println it.execute().text }
 
@@ -84,13 +86,24 @@ task setEnvVars {
                 "cf set-env movie-fun-app S3_ACCESSKEY $System.env.S3_ACCESSKEY",
                 "cf set-env movie-fun-app S3_SECRETKEY $System.env.S3_SECRETKEY",
                 "cf set-env movie-fun-app S3_BUCKETNAME $System.env.S3_BUCKETNAME",
+                "cf set-env movie-fun-app S3_ENDPOINT $System.env.S3_ENDPOINT",
                 "cf set-env album-service S3_ACCESSKEY $System.env.S3_ACCESSKEY",
                 "cf set-env album-service S3_SECRETKEY $System.env.S3_SECRETKEY",
                 "cf set-env album-service S3_BUCKETNAME $System.env.S3_BUCKETNAME",
+                "cf set-env album-service S3_ENDPOINT $System.env.S3_ENDPOINT",
+                "cf set-env play-service S3_ACCESSKEY $System.env.S3_ACCESSKEY",
+                "cf set-env play-service S3_SECRETKEY $System.env.S3_SECRETKEY",
+                "cf set-env play-service S3_BUCKETNAME $System.env.S3_BUCKETNAME",
+                "cf set-env play-service S3_ENDPOINT $System.env.S3_ENDPOINT",
+                "cf set-env album-service TRUST_CERTS api.sys.pikes.pal.pivotal.io,auth-domain.login.sys.pikes.pal.pivotal.io,uaa.sys.pikes.pal.pivotal.io",
+                "cf set-env movie-service TRUST_CERTS api.sys.pikes.pal.pivotal.io,auth-domain.login.sys.pikes.pal.pivotal.io,uaa.sys.pikes.pal.pivotal.io",
+                "cf set-env play-service TRUST_CERTS api.sys.pikes.pal.pivotal.io,auth-domain.login.sys.pikes.pal.pivotal.io,uaa.sys.pikes.pal.pivotal.io",
+                "cf set-env movie-fun-app TRUST_CERTS api.sys.pikes.pal.pivotal.io,auth-domain.login.sys.pikes.pal.pivotal.io,uaa.sys.pikes.pal.pivotal.io",
         ].each { println it.execute().text }
 
         "cf restage movie-fun-app".execute().in.eachLine { println it }
         "cf restage album-service".execute().in.eachLine { println it }
+        "cf restage play-service".execute().in.eachLine { println it }
     }
 }
 

@@ -66,13 +66,19 @@
         <tr>
             <td><b>Title</b></td>
             <td><b>Characters in play</b></td>
+            <td><b></b></td>
+            <td><b></b></td>
             <td><b>Year</b></td>
         </tr>
 
         <c:forEach items="${requestScope.plays}" var="play">
             <tr>
-                <td> ${play.title} </td>
-                <td> ${play.playCharacters} </td>
+                <td>${play.title} </td>
+                <div class="container">
+            <c:forEach items="${play.charactersInPlay}" var="charInplay">
+                <td>${charInplay.name}</td>
+            </c:forEach>
+                </div>
                 <td> ${play.year} </td>
                 <td><a href="/plays/${play.id}">Details</a></td>
             </tr>

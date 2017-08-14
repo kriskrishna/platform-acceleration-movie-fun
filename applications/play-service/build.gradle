@@ -7,7 +7,7 @@ apply plugin: "io.spring.dependency-management"
 
 group = "org.superbiz"
 version = "1.1.0-SNAPSHOT"
-description = "OpenEJB :: Web Examples :: AlbumService"
+description = "OpenEJB :: Web Examples :: PlayService"
 
 dependencyManagement {
     imports {
@@ -33,4 +33,10 @@ dependencies {
     compile "io.pivotal.spring.cloud:cloudfoundry-certificate-truster:$certTrusterVersion"
 
     compile "mysql:mysql-connector-java:$mysqlVersion"
+
+    compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.0"
+
+    testCompile(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version:'1.4.0.RELEASE') {
+        exclude(module: 'commons-logging')
+    }
 }

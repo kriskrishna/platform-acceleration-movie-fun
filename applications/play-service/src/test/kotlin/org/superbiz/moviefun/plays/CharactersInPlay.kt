@@ -3,5 +3,6 @@ package org.superbiz.moviefun.playsapi
 /**
  * Created by kshitizkriskrishna on 8/8/17.
  */
+//@JsonTypeName("CharactersInPlayInfo")
 //@JsonUnwrapped
-data class CharactersInPlayInfo(val name: String?)
+data class CharactersInPlay( val name: String?)

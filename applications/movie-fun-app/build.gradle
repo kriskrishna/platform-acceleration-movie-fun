@@ -47,4 +47,5 @@ dependencies {
     testCompile "junit:junit:$junitVersion"
 
     compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+    compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.0"
 }

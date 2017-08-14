@@ -19,19 +19,21 @@ package org.superbiz.moviefun.plays
  * limitations under the License.
  */
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import javax.persistence.*
 
 
 @Entity
-@Table(name = "characters_in_play")
-data class CharactersInPlay(
+data class CharactersInPlay @JvmOverloads constructor(
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         var id: Long,
-        @OneToMany(mappedBy = "charactersInPlay", cascade = arrayOf(CascadeType.ALL)) val plays: Set<Play>,
-        val title: String,
-        val name: String
+        @get:JsonIgnore
+        //@get:JsonManagedReference("play")
+        @ManyToOne(fetch= FetchType.EAGER)
+        @JoinColumn(name = "play_id", nullable = false)
+        var play: Play? = null,
+        var name: String? = null
 ) {
-
 
 }

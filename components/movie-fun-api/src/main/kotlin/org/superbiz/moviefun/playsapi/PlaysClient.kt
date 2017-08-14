@@ -1,4 +1,4 @@
-package org.superbiz.moviefun.albumsapi
+package org.superbiz.moviefun.playsapi
 
 import org.springframework.core.ParameterizedTypeReference
 import org.springframework.http.HttpMethod.GET

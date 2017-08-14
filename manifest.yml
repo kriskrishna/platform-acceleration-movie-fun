@@ -1,29 +1,50 @@
 ---
 memory: 1G
+disk_quota: 512M
 instances: 1
+buildpack: java_buildpack_offline
 services:
 - movie-fun-sso
 - movie-fun-registry
 env:
-  TRUST_CERTS: api.sys.pikes.pal.pivotal.io,auth-domain.login.sys.pikes.pal.pivotal.io
+  TRUST_CERTS: api.sys.pikes.pal.pivotal.io,auth-domain.login.sys.pikes.pal.pivotal.io,uaa.sys.pikes.pal.pivotal.io
+  S3_ACCESSKEY: AKIAIC4YFNPRG7W7N2RA
+  S3_BUCKETNAME: cf-ec55b626-f36a-45da-937a-e36c1a6d4b2b
+  S3_ENDPOINTURL: http://s3.amazonaws.com
+  S3_ENDPOINT: http://s3.amazonaws.com
+  S3_SECRETKEY: qpqVcS6oGZn1HFJB+sWntTgv41i/VgZIjGyNh71A
 applications:
 - name: album-service
   path: applications/album-service/build/libs/album-service-1.1.0-SNAPSHOT.jar
+  routes:
+  - route: album-service.apps.pikes.pal.pivotal.io
   services:
   - album-database
   env:
     GRANT_TYPE: client_credentials
 - name: movie-service
   path: applications/movie-service/build/libs/movie-service-1.1.0-SNAPSHOT.jar
+  routes:
+  - route: movie-service.apps.pikes.pal.pivotal.io
   services:
   - movie-database
   env:
     GRANT_TYPE: client_credentials
+- name: play-service
+  path: applications/play-service/build/libs/play-service-1.1.0-SNAPSHOT.jar
+  routes:
+    - route: play-service.apps.pikes.pal.pivotal.io
+  services:
+  - play-database
 - name: movie-fun-app
   path: applications/movie-fun-app/build/libs/movie-fun-app-1.1.0-SNAPSHOT.war
   services:
   - movie-fun-config
   - movie-fun-circuit-breaker
+  - moviefun-s3
+  routes:
+  - route: movie-fun-app.apps.pikes.pal.pivotal.io
 env:
     ALBUMS_URL: https://album-service.apps.pikes.pal.pivotal.io/albums
     MOVIES_URL: https://movie-service.apps.pikes.pal.pivotal.io/movies
+    PLAYS_URL: https://play-service.apps.pikes.pal.pivotal.io/plays

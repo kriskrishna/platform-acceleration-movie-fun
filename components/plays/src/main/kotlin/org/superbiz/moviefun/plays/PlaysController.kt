@@ -10,7 +10,11 @@ class PlaysController(private val playsRepository: PlaysRepository) {
     val logger = LoggerFactory.getLogger(this.javaClass)
 
     @PostMapping
-    fun addPlay(@RequestBody play: Play) = playsRepository.addPlay(play)
+    fun addPlay(@RequestBody play: Play) {
+        //val mapper = jacksonObjectMapper()
+        //val playJson = mapper.readValue<Play>(play)
+        playsRepository.addPlay(play)
+    }
 
     @GetMapping
     fun index() = playsRepository.getPlays()
@@ -18,3 +22,4 @@ class PlaysController(private val playsRepository: PlaysRepository) {
     @GetMapping("/{playId}")
     fun details(@PathVariable playId: Long) = playsRepository.find(playId)
 }
+

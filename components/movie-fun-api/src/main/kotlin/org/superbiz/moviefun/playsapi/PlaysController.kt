@@ -1,4 +1,4 @@
-package org.superbiz.moviefun.albumsapi
+package org.superbiz.moviefun.playsapi
 
 import org.apache.tika.io.IOUtils
 import org.slf4j.LoggerFactory
@@ -14,7 +14,7 @@ import java.lang.String.format
 
 @Controller
 @RequestMapping("/plays")
-class PlaysController @Autowired constructor(val playsClient: PlaysClient, val coverCatalog: CoverCatalog) {
+class PlaysController @Autowired constructor(val playsClient: PlaysClient, val coverCatalog: PlayCoverCatalog) {
 
     val logger = LoggerFactory.getLogger(this.javaClass)
 

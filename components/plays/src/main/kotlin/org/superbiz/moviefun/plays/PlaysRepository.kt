@@ -23,11 +23,14 @@ import org.springframework.stereotype.Repository
 import org.springframework.transaction.annotation.Transactional
 import javax.persistence.EntityManager
 
+
+
 @Repository
 class PlaysRepository(val entityManager: EntityManager) {
 
     @Transactional
     fun addPlay(play: Play) {
+        addPlay(play.charactersInPlay, play)
         entityManager.persist(play)
     }
 
@@ -49,5 +52,11 @@ class PlaysRepository(val entityManager: EntityManager) {
     @Transactional
     fun updatePlay(play: Play) {
         entityManager.merge(play)
+    }
+
+    fun addPlay(charactersInPlay: List<CharactersInPlay>?, play: Play) {
+        if (charactersInPlay != null) {
+            charactersInPlay.forEach { it.play = play }
+        }
     }
 }

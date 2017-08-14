@@ -1,0 +1,36 @@
+---
+memory: 1G
+instances: 1
+services:
+- movie-fun-sso
+- movie-fun-registry
+env:
+  TRUST_CERTS: api.sys.pikes.pal.pivotal.io,auth-domain.login.sys.pikes.pal.pivotal.io
+applications:
+- name: album-service-kk
+  path: applications/album-service/build/libs/album-service-1.1.0-SNAPSHOT.jar
+  services:
+  - album-database
+  env:
+    GRANT_TYPE: client_credentials
+- name: movie-service-kk
+  path: applications/movie-service/build/libs/movie-service-1.1.0-SNAPSHOT.jar
+  services:
+  - movie-database
+  env:
+    GRANT_TYPE: client_credentials
+- name: play-service-kk
+  path: applications/play-service/build/libs/play-service-1.1.0-SNAPSHOT.jar
+  services:
+  - play-database
+  env:
+    GRANT_TYPE: client_credentials
+- name: movie-fun-app-kk
+  path: applications/movie-fun-app/build/libs/movie-fun-app-1.1.0-SNAPSHOT.war
+  services:
+  - movie-fun-config
+  - movie-fun-circuit-breaker
+env:
+    ALBUMS_URL: https://album-service-kk.apps.pikes.pal.pivotal.io/albums
+    MOVIES_URL: https://movie-service-kk.apps.pikes.pal.pivotal.io/movies
+    PLAYS_URL: https://play-service-kk.apps.pikes.pal.pivotal.io/plays

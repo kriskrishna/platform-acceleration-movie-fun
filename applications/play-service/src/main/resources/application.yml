@@ -6,13 +6,16 @@ spring:
 
   jpa:
     properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+    #generate-ddl: true
+    #ddl-auto: create
 
   datasource:
     url: jdbc:mysql://localhost:3306/plays?useSSL=false
     username: root
 
 logging.level:
-  root: DEBUG
+  root: INFO
+  com.fasterxml.jackson: DEBUG
   org.superbiz.moviefun: DEBUG
 
 s3:

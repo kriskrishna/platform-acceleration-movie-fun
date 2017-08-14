@@ -19,15 +19,18 @@ package org.superbiz.moviefun.plays
  * limitations under the License.
  */
 
+
 import javax.persistence.*
 
 
 @Entity
-data class Play(
+data class Play @JvmOverloads constructor(
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         var id: Long? = null,
-        @ManyToOne @JoinColumn(name = "characters_in_play_id") val charactersInPlay: CharactersInPlay? = null,
+        //@get:JsonBackReference("charactersInPlay")
+        @OneToMany( mappedBy = "play", targetEntity= CharactersInPlay::class, cascade = arrayOf(CascadeType.ALL))
+        val charactersInPlay: List<CharactersInPlay>?,
         val title: String? = null,
         val dialogue: String? = null,
         val playSetting: String? = null,
