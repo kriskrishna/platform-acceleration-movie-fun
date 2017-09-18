@@ -1,5 +1,9 @@
 server.port: 8081
 
+management:
+  security:
+    enabled: false
+
 spring:
   application:
     name: album-service

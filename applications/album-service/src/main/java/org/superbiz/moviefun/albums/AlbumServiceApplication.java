@@ -21,7 +21,7 @@ public class AlbumServiceApplication {
     @Value("${s3.accessKey}") String s3AccessKey;
     @Value("${s3.secretKey}") String s3SecretKey;
     @Value("${s3.bucketName}") String s3BucketName;
-    @Value("${s3.endpointURL}") String s3EndpointURL;
+    @Value("${s3.endpoint}") String s3EndpointURL;
 
     @Bean
     public BlobStore blobStore() {

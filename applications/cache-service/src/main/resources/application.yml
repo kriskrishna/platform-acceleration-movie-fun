@@ -1,0 +1,28 @@
+server.port: 8083
+
+management:
+  security:
+    enabled: false
+
+service:
+   name: redis
+
+spring:
+  application:
+    name: cache-service
+  redis:
+        #host: redis.local.pcfdev.io
+        #port: 52273
+        #password: 51817087-6122-40de-afbd-b6f2e6c14f5c
+        host: 127.0.0.1
+        port: 6379
+        #password: 51817087-6122-40de-afbd-b6f2e6c14f5c
+
+logging.level:
+  root: WARN
+  org.superbiz.moviefun: DEBUG
+
+
+security:
+  basic:
+    enabled: false

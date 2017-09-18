@@ -27,4 +27,6 @@ dependencies {
     compile "io.pivotal.spring.cloud:cloudfoundry-certificate-truster:$certTrusterVersion"
 
     compile "mysql:mysql-connector-java:$mysqlVersion"
+
+    compile "org.springframework.boot:spring-boot-starter-actuator"
 }

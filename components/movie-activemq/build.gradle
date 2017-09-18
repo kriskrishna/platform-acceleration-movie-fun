@@ -1,0 +1,12 @@
+apply from: "../../java.gradle"
+
+dependencies {
+    compile "org.springframework:spring-core:$springVersion"
+    compile "org.springframework:spring-web:$springVersion"
+    compile "org.springframework:spring-context:$springVersion"
+
+    compile "org.springframework.boot:spring-boot-starter-activemq:$springBootVersion"
+    compile "org.springframework:spring-jms:4.3.4.RELEASE"
+    compile "org.apache.activemq:activemq-broker:5.14.1"
+    compile "com.fasterxml.jackson.core:jackson-databind:2.8.3"
+}

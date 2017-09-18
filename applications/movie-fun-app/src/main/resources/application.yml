@@ -12,6 +12,10 @@ spring:
     prefix: /WEB-INF/
     suffix: .jsp
 
+management:
+  security:
+    enabled: falses
+
 logging.level:
   root: WARN
   org.superbiz.moviefun: DEBUG

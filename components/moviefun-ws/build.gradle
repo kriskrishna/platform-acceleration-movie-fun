@@ -1,0 +1,36 @@
+apply from: "../../java.gradle"
+
+apply plugin: "org.springframework.boot"
+apply plugin: "io.spring.dependency-management"
+
+group = "org.superbiz"
+version = "1.1.0-SNAPSHOT"
+description = "OpenEJB :: Web & Cache Examples :: Soap WebService"
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion"
+        mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:$springCloudServicesVersion"
+    }
+}
+
+dependencies {
+    //compile "org.springframework.boot:spring-boot-starter-web-services"
+    // could be part of boot starter
+    compile "org.springframework:spring-core:$springVersion"
+    compile "org.springframework:spring-web:$springVersion"
+    compile "org.springframework:spring-context:$springVersion"
+    compile "org.springframework:spring-oxm:4.3.4.RELEASE"
+    compile "org.springframework.ws:spring-ws-core:2.3.1.RELEASE"
+    compile "ch.qos.logback:logback-classic:1.1.7"
+    compile "org.slf4j:jcl-over-slf4j:1.7.21"
+    compile "org.slf4j:jul-to-slf4j:1.7.21"
+    compile "org.slf4j:log4j-over-slf4j:1.7.21"
+    ///////////////////////
+
+
+    compile "jaxen:jaxen:1.1.6"
+    compile "org.jdom:jdom2:2.0.6"
+    compile "wsdl4j:wsdl4j"
+    testCompile "org.springframework.boot:spring-boot-starter-test"
+}
